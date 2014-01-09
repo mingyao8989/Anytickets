@@ -1,0 +1,17 @@
+#myCarousel.carousel.slide
+  / Carousel items
+  .carousel-inner
+    -items.each_with_index do |item, index|
+      .item{:class => index == 0 ? "active" : ""}
+        =image_tag item[:image]
+        .carousel-caption
+          %a{:href => item[:link]}
+            %button.btn.button1.css3{:type => "button"}
+              =item[:button_text]
+          %h2
+            %strong
+              =item[:title_bold]
+            =item[:title]
+  / Carousel nav
+  %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &nbsp;
+  %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &nbsp;

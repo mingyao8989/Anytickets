@@ -1,0 +1,29 @@
+%section.span6
+  #myCarousel.carousel.slide
+    / Carousel items
+    .carousel-inner
+      .item.active
+        =image_tag 'image1(1).jpg',alt:'image1'
+        .carousel-caption
+          %button.btn.button1.css3{:type => "button"} Get Tickets
+          %h2
+            %strong MLB Opening Day
+            tickets are now available!
+      .item
+        =image_tag 'image2(1).jpg',alt:'image2'
+        .carousel-caption
+          %button.btn.button1.css3{:type => "button"} Get Tickets
+          %h2
+            %strong MLB Opening Day
+            tickets are now
+      .item
+        =image_tag 'image1(1).jpg',alt:'image1'
+        .carousel-caption
+          %button.btn.button1.css3{:type => "button"} Get Tickets
+          %h2
+            %strong MLB Opening Day
+            tickets are now available!
+    / Carousel nav
+    %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &nbsp;
+    %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &nbsp;
+  =@content

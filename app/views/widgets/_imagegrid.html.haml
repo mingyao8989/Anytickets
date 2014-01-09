@@ -1,0 +1,46 @@
+%section.box3.css3
+  %h2
+    = collection.name
+  %ul.thumbnails.list4
+    -i=0
+    -collection.items.take(grid_size).each do |item|
+      - i=i+1
+      -if i%4==0 && i!=grid_size
+        %li.outermost
+          .thumbnail
+            %div{:class => buffer_type}
+              = image_tag item.image_url, alt:item.name
+              %h3
+                = link_to item.name.truncate(18), collectible_link(item)
+              %p
+                = item.venue.name.truncate(25) if item.kind_of?(Event) && item.venue
+              %span.metadata
+                = item.short_date if item.kind_of?(Event) && item.date
+            = link_to "Tickets", collectible_link(item), class:"button1 css3"
+      - else
+        - if i == grid_size
+          %li.last
+            .thumbnail
+              %div{:class => buffer_type}
+                = image_tag item.image_url, alt:item.name
+                %h3
+                  = link_to item.name.truncate(18), collectible_link(item)
+                %p
+                  = item.venue.name.truncate(25) if item.kind_of?(Event) && item.venue
+                %span.metadata
+                  = item.short_date if item.kind_of?(Event) && item.date
+              = link_to "Tickets", collectible_link(item), class:"button1 css3"
+        - else
+          %li
+            .thumbnail
+              %div{:class => buffer_type}
+                - begin
+                  = image_tag item.image_url, alt:item.name
+                - rescue
+                %h3
+                  =link_to item.name.truncate(18), collectible_link(item)
+                %p
+                  =item.venue.name.truncate(25) if item.kind_of?(Event) && item.venue
+                %span.metadata
+                  =item.short_date if item.kind_of?(Event) && item.date
+              =link_to "Tickets", collectible_link(item), class:"button1 css3"

@@ -1,0 +1,7 @@
+#breadcrumbs.row
+  .span6
+    = link_to(performer.category.grandparent.name, collectible_link(performer.category.grandparent) ) if performer.category && performer.category.grandparent && performer.category.grandparent.visible
+    = link_to(performer.category.parent.name, collectible_link(performer.category.parent)) if performer.category && performer.category.parent && performer.category.parent.visible
+    = link_to(performer.category.name, collectible_link(performer.category)) if performer.category && performer.category.visible
+    %span
+      %b= performer.name

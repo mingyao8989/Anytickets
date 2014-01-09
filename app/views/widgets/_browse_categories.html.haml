@@ -1,0 +1,12 @@
+%section.widget.box2.categories.css3
+	%h2
+		=title
+	%ul
+		- collections.each do |collection|
+			%li.dropdown
+				%a.dropdown-toggle{'data-toggle'=>'dropdown' ,:href=>'#'}
+					= collection.name
+				%ul.dropdown-menu{ 'aria-labelledby'=>'dropdownMenu', :role=>'menu'}
+					-collection.items.each do |item|
+						%li
+							=link_to item.name, collectible_link(item)

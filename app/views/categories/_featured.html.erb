@@ -1,0 +1,13 @@
+<article class="box3 post featured2 css3 clearfix" id="featured">
+     <h2>Featured <%= @category.name %></h2>
+     <%= image_tag @featured.image_url ,alt: @featured.name,  class: "alignright" %>
+     <section class="entry">
+     <%= markdown @featured.description if @featured.description %>
+      </section>
+     <p class="read-more"><a href="#" class="show">Read more...</a> <a href="#" class="hide">Read less...</a></p>
+     <section class="post-footer">
+     <a href='<%= collectible_link(@featured) %>'
+     <button class="btn  button1 css3">Buy <%= @featured.name %> Tickets Now</button>
+     </a>
+     </section>
+</article>

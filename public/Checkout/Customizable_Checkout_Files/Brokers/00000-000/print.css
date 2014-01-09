@@ -1,0 +1,11 @@
+﻿.master_page { width : 760px ! important; }
+.master_side_bar_left { display: none; }
+.master_right_block { width: 100% ! important; float: left ! important; }
+.master_content { width: 100% ! important; }
+.master_side_bar_right { display: none; }
+.master_footer { display: none; }
+.master_main { }
+div { background-color: Transparent; }
+.anthem { width: auto; float: none; }
+.checkout_receipt { font-family: courier new,courier; font-size: 9pt; color: #333333; }
+

@@ -1,0 +1,230 @@
+<section class="browse-tickets">
+             <h2> <%= location.name %> Tickets</h2>
+                <p class="index">
+                 <span>Index:</span>
+                    <% if events_hash['numbers'].empty? %>
+                        0-9
+                    <%else%>
+                        <a href="#zero-nine" data-toggle="tab">0-9</a></li>
+                    <% end %>
+                    <% ('a'..'z').each do |letter| %>
+                        <%if events_hash[letter].empty? %>
+                            <%= letter.upcase %>
+                        <%else%>
+                            <a href="<%= "##{letter}"%>" data-toggle="tab">
+                                <%= letter.upcase %>
+                            </a>
+                        <%end%>
+                    <%end%>
+                </p>
+                <ul id="myTab" class="nav nav-tabs">
+                 <% if events_hash['numbers'].empty? %>
+                        <li>0-9</li>
+                    <%else%>
+                        <a href="#zero-nine" data-toggle="tab">0-9</a></li>
+                    <% end %>
+                    <% ('a'..'z').each do |letter| %>
+                        <%if events_hash[letter].empty? %>
+                           <li> <%= letter.upcase %></li>
+                         <%else%>
+                        <li>
+                            <a href="<%= "##{letter}"%>" data-toggle="tab">
+                                <%= letter.upcase %>
+                            </a>
+                        </li>
+                        <%end%>
+                    <%end%>
+                </ul>
+                <section class="box3 tab-content">
+            <section id="zero-nine" class="tab-pane"><h3>0-9</h3>
+                    <ul>
+                     <% @events_hash['numbers'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="a" class="tab-pane"><h3>A</h3>
+                    <ul>
+                     <% @events_hash['a'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="b" class="tab-pane"><h3>B</h3>
+                    <ul>
+                     <% @events_hash['b'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="c" class="tab-pane"><h3>C</h3>
+                    <ul>
+                        <% @events_hash['c'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="d" class="tab-pane"><h3>D</h3>
+                    <ul>
+                        <% @events_hash['d'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="e" class="tab-pane"><h3>E</h3>
+                    <ul>
+                        <% @events_hash['e'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="f" class="tab-pane"><h3>F</h3>
+                    <ul>
+                     <% @events_hash['f'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="g" class="tab-pane"><h3>G</h3>
+                    <ul>
+                     <% @events_hash['g'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="h" class="tab-pane"><h3>H</h3>
+                    <ul>
+                     <% @events_hash['h'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="i" class="tab-pane"><h3>I</h3>
+                    <ul>
+                     <% @events_hash['i'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="j" class="tab-pane"><h3>J</h3>
+                    <ul>
+                     <% @events_hash['j'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="k" class="tab-pane"><h3>K</h3>
+                    <ul>
+                     <% @events_hash['k'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="l" class="tab-pane"><h3>L</h3>
+                    <ul>
+                        <% @events_hash['l'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="m" class="tab-pane"><h3>M</h3>
+                    <ul>
+                        <% @events_hash['m'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="n" class="tab-pane"><h3>N</h3>
+                    <ul>
+                     <% @events_hash['n'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="o" class="tab-pane"><h3>O</h3>
+                    <ul>
+                     <% @events_hash['o'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="p" class="tab-pane"><h3>P</h3>
+                    <ul>
+                    <% @events_hash['p'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="q" class="tab-pane"><h3>Q</h3>
+                    <ul>
+                     <% @events_hash['q'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="r" class="tab-pane"><h3>R</h3>
+                    <ul>
+                     <% @events_hash['r'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="s" class="tab-pane"><h3>S</h3>
+                    <ul>
+                     <% @events_hash['s'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="t" class="tab-pane"><h3>T</h3>
+                    <ul>
+                     <% @events_hash['t'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="u" class="tab-pane"><h3>U</h3>
+                    <ul>
+                     <% @events_hash['u'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="v" class="tab-pane"><h3>V</h3>
+                    <ul>
+                     <% @events_hash['v'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="w" class="tab-pane"><h3>W</h3>
+                    <ul>
+                     <% @events_hash['w'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="x" class="tab-pane"><h3>X</h3>
+                    <ul>
+                     <% @events_hash['x'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="y" class="tab-pane"><h3>Y</h3>
+                    <ul>
+                     <% @events_hash['y'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                    <section id="z" class="tab-pane"><h3>Z</h3>
+                    <ul>
+                     <% @events_hash['z'].each do |event| %>
+                     <li> <%= link_to event.name, collectible_link(event) %> </li>
+                     <% end %>
+                    </ul></section>
+
+                </section>
+                <!--/Tabcontent -->
+        </section>\

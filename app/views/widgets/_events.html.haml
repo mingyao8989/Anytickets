@@ -1,0 +1,27 @@
+%section.tabs
+	%ul.nav.nav-tabs#myTab
+		%li.active
+			%a.css3{:href=>'#sports-events', 'data-toggle' => 'tab'}
+				= collection1.name
+		%li
+			%a.css3{:href=>'#concert-events', 'data-toggle' => 'tab'}
+				= collection2.name
+		%li
+			%a.css3{:href=>'#theater-events', 'data-toggle' => 'tab'}
+				= collection3.name
+	.tab-content.box3.css3
+		%div.tab-pane.active#sports-events
+			%ul.list5.clearfix
+				-collection1.items.each do |item|
+					%li
+						=link_to item.name, collectible_link(item)
+		%div.tab-pane#concert-events
+			%ul.list5.clearfix
+				-collection2.items.each do |item|
+					%li
+						=link_to item.name, collectible_link(item)
+		%div.tab-pane#theater-events
+			%ul.list5.clearfix
+				-collection3.items.each do |item|
+					%li
+						=link_to item.name, collectible_link(item)

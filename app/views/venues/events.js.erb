@@ -1,0 +1,5 @@
+$('div#tickets-box').html("<%= escape_javascript(
+										render 'events_box',
+										venue: @venue, 
+										events: @events, 
+										order_by: params[:order_by]) %>");

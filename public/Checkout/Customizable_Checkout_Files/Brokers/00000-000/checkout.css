@@ -1,0 +1,199 @@
+﻿/* Width of the entire page */
+.master_page { width : 760px ! important; } 
+
+/* Width of SideBarLeft.inc */
+.master_side_bar_left { width: 19% ! important; } 
+
+/* Placeholder/wrapper of the main checkout area */
+.master_right_block { width: 79% ! important;}
+
+/* Width of the main checkout area */
+.master_content { width: 100% ! important; }
+
+/* Width of the Footer.inc */
+.master_footer { width: 100% ! important; }
+
+/* Width of optional SideBarRight.inc */
+.master_side_bar_right {  } 
+
+/* master_side_bar_left + master_side_bar_right */
+.master_main { }
+
+div { background-color: Transparent; }
+
+body { font-family: arial,helvetica,sans serif; color: #838383; font-size: 12px; }
+
+table, tbody, thead, td, tr, th { font-family: arial,helvetica,sans serif; color: #838383; font-size: 12px; }
+
+/* checkout_error coincides with the red error arrows */
+.checkout_error { font-weight: bold; color: Red; }
+
+/* Coincides with the grey notice arrows */
+.checkout_notice { font-weight: bold; color: #838383; }
+.checkout_label {  font-weight: bold; }
+.checkout_disabled { color: #F0F8FF; }
+
+/* Divider color from HorizontalDivider.inc */
+.checkout_divider { background-color: #CCCCCC; height: 5px; width: 100%; }
+
+/* Link colors */
+a:link { text-decoration: underline; color: #007CAF; } 
+a:visited { text-decoration: underline; color: #007CAF; }
+a:hover { text-decoration: underline; color: #007CAF; }
+a:active { text-decoration: underline; color: #007CAF; }
+
+/* Background colors for tables in the main checkout area */
+.boxbg {background-color:#ffffff;}
+
+/* Used for divs on the SideBarLeft.inc */
+.purchase_notes { font-family: arial,helvetica,sans serif; font-size: 11px; color:inherit;} 
+
+/* Search bar */
+INPUT.logobar_search_box { width:115px; height:10px; font-family:arial,helvetica,sans-serif; font-size:10px; }
+
+/* Properties for the event table in the main checkout area */
+.checkout_event_name { font-size: 16px; font-weight: bold; color: #2091C0; }
+.checkout_event_table { background-color: #eeeeee; }
+.checkout_event_datetime { }
+.checkout_event_venue { }
+.checkout_event_sectionrow { }
+.checkout_event_label {  font-weight: bold; } 
+
+/* Properties for the upper purchase table in the main checkout area */
+.checkout_purchase { background-color: #ffffcc; }
+.checkout_purchase_label {  font-weight: bold; }
+.checkout_purchase_priceperticket { }
+.checkout_purchase_ticketsrequested { }
+.checkout_purchase_toofewtickets { }
+.checkout_purchase_discount {  font-style: italic;}
+.checkout_purchase_exclusion { font-size: 11px;}
+
+/* Properties for the lower table in the main checkout area */
+.checkout_totals_label {  font-weight: bold; }
+.checkout_totals_subtotal { }
+.checkout_totals_discount { }
+.checkout_totals_shipping { }
+.checkout_totals_fee { }
+.checkout_totals_total {  color: #ff3333; }
+
+/* Classes for policies box */
+.tn_checkout_textarea {width:98%; margin:2px 0px 0px 0px; height:4em; overflow: auto; border: solid 1px #838383; color: #000000; background-color: #FFFFFF; }
+textarea {font-family: arial,helvetica,sans serif; color: #000000; font-size: 12px;}
+
+/* Other heading labels */
+.checkout_title { font-size: 16px; font-weight: bold; color: #2091C0; }
+
+/* Size of confirm text on final page */
+.checkout_confirm { font-size: 11px; }
+
+/* Display font characteristics of the receipt on the final page, change #333333 if your page has a dark background */
+.checkout_receipt { font-family: courier new,courier; font-size: 10pt; color: #333333; }
+
+
+
+
+/* new header*/
+
+.nav {
+  margin-bottom: 20px;
+  margin-left: 0;
+  list-style: none;
+  padding-left:0;
+}
+
+.nav > li > a {
+  display: block;
+}
+
+.nav > li > a:hover {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+
+.nav > .pull-right {
+  float: right;
+}
+
+.nav-header {
+  display: block;
+  padding: 3px 15px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #999999;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.nav li + .nav-header {
+  margin-top: 9px;
+}
+
+.nav-list {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 0;
+}
+
+.nav-list > li > a,
+.nav-list .nav-header {
+  margin-right: -15px;
+  margin-left: -15px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.nav-list > li > a {
+  padding: 3px 15px;
+}
+
+.nav-list > .active > a,
+.nav-list > .active > a:hover {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #0088cc;
+}
+
+.nav-list [class^="icon-"],
+.nav-list [class*=" icon-"] {
+  margin-right: 2px;
+}
+
+.nav-list .divider {
+  *width: 100%;
+  height: 1px;
+  margin: 9px 1px;
+  *margin: -5px 0 5px;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #ffffff;
+}
+
+/*---- Main Navigation ----*/
+#main-navigation { background:#000202 url("Images/main-nav-bg.gif") left top repeat-x; position:relative; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; padding:0px 18px; margin-bottom:0px;}
+
+#main-navigation ul { list-style:none; margin:0px;}
+#main-navigation .nav { float:none;}
+#main-navigation .nav > li { margin:0px; float:left; line-height:normal; background:url("Images/main-nav-li-bg.gif") left top no-repeat; padding-left:11px; margin-right:10px;}
+#main-navigation .nav > li.first, #main-navigation .nav > li.last { background:none;}
+#main-navigation .nav > li.last { margin-right:0px;}
+#main-navigation .nav > li.atlanta { float:right;}
+#main-navigation .nav > li.atlanta a { text-transform:none;}
+#main-navigation .nav > li > a { height:34px; line-height:34px; text-transform:uppercase; font-size:12px; color:#fff; font-weight:bold; padding:0px 10px; text-shadow:none;}
+#main-navigation .nav > li > a:hover, #main-navigation .nav > li.active > a  { background:#000;}
+
+#main-navigation .nav li.open .dropdown-toggle { background:#000;}
+#main-navigation .nav .dropdown-toggle .caret { background:url(<%= asset_path "arrow.png" %>) left top no-repeat; width:12px; height:9px; padding:0px; margin:13px 0px 0px 5px; border:0px;}
+
+#main-navigation .nav li.dropdown:hover .dropdown-menu{display:block;}
+
+#main-navigation .nav > li > .dropdown-menu { left:-78px;}
+#main-navigation .nav > li a{text-decoration:none;}
+
+.top-links{margin-bottom:10px;}
+td.topbar_links{padding-right:10px;}
+td.topbar_links a:link,td.topbar_links a:visited{color:#FFF;font-size:12px;text-decoration:none;outline:none;}
+table.topbar{background:#008EB5 url(images/header-bg.gif) no-repeat scroll -20% center;margin-bottom:-2px;}
+span.logo{background:transparent url(images/logo.png) no-repeat scroll left top;width:180px;height:77px;display:block;overflow:hidden;text-indent:-9999px;}
+.form-search{float:right;width:403px;}
+.form-search .btn { background:url(Images/submit-btn.png) left top no-repeat; width:71px; height:26px; overflow:hidden; -webkit-border-radius:0px; -moz-border-radius:0px; border-radius:0px; -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none; border:0px; padding:0px;cursor:pointer;}
+.form-search .search-query { border:1px solid #dfdfdf; -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none; width:300px; background:#fff; padding:0px 10px; -webkit-border-radius:0px; -moz-border-radius:0px; border-radius:0px; font-size:13px; color:#9a9a9a; float:left; margin-right:10px; height:24px; line-height:24px;}

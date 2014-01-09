@@ -1,0 +1,19 @@
+<% unless @popular.empty? %>
+  <section class="box3 css3 popular-broadway-tickets">
+    <h2>Popular <%= @category.nil? ? params[:id] : @category.name %> Tickets</h2>
+    <ul class="thumbnails list4">
+      <% i=1 %>
+      <% @popular.each do |event| %>
+      <li <%= 'class=outermost' if i == 4 %> <%= 'class=last' if i == 8 %>>
+        <div class="thumbnail"> <a href="<%= collectible_link(event) %>"><%=image_tag event.image_url, alt: event.name %></a>
+          <h3><%= link_to event.name.truncate(35), collectible_link(event) %></h3>
+          <a href="<%= collectible_link event %>">
+          <button class="btn  button1 css3">Tickets</button>
+          </a>
+        </div>
+      </li>
+      <% i = i + 1 %>
+      <% end %>
+    </ul>
+  </section>
+<% end %>

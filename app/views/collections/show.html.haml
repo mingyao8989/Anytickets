@@ -1,0 +1,19 @@
+#content.clearfix
+  .container
+    .row
+      = @left_sidebar
+      %section.span6
+        %h3
+          = @collection.name
+        .row
+          .span3
+            %ul.venues
+              -@items1.each do |item|
+                %li
+                  =link_to item.name, collectible_link(item)
+          .span3
+            %ul.venues
+              -@items2.each do |item|
+                %li
+                  =link_to item.name, collectible_link(item)
+      = @right_sidebar

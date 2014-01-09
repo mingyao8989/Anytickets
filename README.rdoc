@@ -1,0 +1,74 @@
+== All seats
+
+== How to export a CSV file:
+1. Go to the admin panel ("siteurl/admin").
+2. Select the model you would like to export (for example, "Events")
+3. Either click "Export found <model name>" to export all entries of the model or select what entries you want to export by clicking the checkboxes and then clicking "Selected items"=>"Export selected items"
+4. Select which fields you want to appear on the file by using the checkboxes (if you want to update the model using the same file it is recommended that you leave all the fields checked).
+5. Click "Export to CSV" (do not change any of the options), you will then receive the CSV file.
+
+Note: Exports can take a few minutes for a large number of entries.
+
+== How to update the model using the CSV file:
+Updating existing entries:
+Change the fields as you like, but do not change the "Id" field. You can change all fields belonging to the exported model, but you cannot change fields belonging to associated models (except collections, as will be discussed later). For example, if the exported file is of the event model, it is possible to change the event name by altering the "Name" column, but it is not possible to change the performer name by altering the "Name [Performer] column. It is also possible to change the performer associated with a specific event by altering the "Id [Performer]" or "Slug [Performer]". When assigning a new associated record like that there is priority for the slug column over the id column.
+
+Creating new entries:
+Change the fields as you like but leave the "Id" field blank (""), this will create a new entry. For associated models the same rules apply as for updating existing entries.
+
+Updating collections from a collectible model:
+When updating a collectible model (event, performer, venue, category, testimonial), it is possible to assign them to collections or even create new collections for them.
+For updating collections, just fill in the "Name [Collections]" field. You can specify an existing collection's name or a new name (a collection will be created with that name). You can specify several names separated by commas and surrounded by quotation marks, for example: "collection one,collection two".
+
+Updating listings:
+The listings table is the table that connects between the collections and the collectibles. To create a new listing, leave the "Id" column blank. To update a collectible, specify it's id in the "Id" column and it's type in the "Collectible type" column (capitalized). For example, to link to an event with id 13 we fill 13 in "Id" and "Event" in "Collectible type".
+To update a collection, simply fill it's name in the "Name [Collection]" column. If no collection exists by that name, a new one will be created.
+
+Note:
+Downloading large amounts of records can cause an error.  you can download the events table with these URLs
+69.41.167.90/csvs/daily_events.csv
+69.41.167.90/csvs/daily_venues.csv
+
+== How to bulk upload pictures
+Connect with SFTP to :
+server: 69.41.167.90
+port: 22
+user: deployer
+
+upload the files to
+~/apps/allseats/shared/pictures
+
+== Notes
+When you want to remove a event/category/performer don't delete it. instead set active to false.
+
+== How to add pictures to an event
+After you uploaded the picture update the Image path field with the name.
+for example :
+"/pictures/contact2.png"
+You can also update multiple events using the CSV import process.
+
+== About liquid tags
+Collection names must be correct in the tag declaration, or the tag won't be displayed.
+
+== Production details
+
+ssh deployer@69.41.167.90
+cd app/allseats/current
+
+psql pass: dd-olspsql
+
+https://69.41.167.90:4089/
+user: openpanel-admin
+pass: dd-openpanel
+
+
+install new machine:
+create a deployer user : adduser deployer --ingroup sudo
+cap deploy:install
+sudo apt-get install libxslt-dev libxml2-dev
+sudo apt-get install imagemagick
+cap deploy:setup
+mkdir ~/apps/allseats/shared/pictures
+cap deploy:cold
+http://www.openpanel.com/download/openpanel-download/
+

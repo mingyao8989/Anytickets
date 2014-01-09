@@ -1,0 +1,39 @@
+<% city = session[:city] %>
+<% if city %>
+  <% events = Event.future.active.joins("LEFT OUTER JOIN locations ON location_id = locations.id")
+                    .where("lower(locations.display_name) = ?", session[:city].downcase.strip)
+                    .order(:featured, "priority DESC", "clicks DESC", "date ASC").first(number) %>
+
+  <% if events.length > 0 %>
+    <div class="tickets-list" id= "autolocation">
+      <section class="box3 css3">
+        <h2><%= city %> Tickets</h2>
+        <table class="table1" >
+          <thead>
+            <tr>
+              <b></b>
+            </tr>
+          </thead>
+          <tbody >
+            <% events.each_with_index do |event, i| %>
+              <% if event %>
+              <tr <%= 'class=alt' if i % 2 == 0 %>>
+                <td class="date">
+                  <%= event.shorter_date %>
+                </td>
+                <td class="first">
+                  <%= link_to event.name, collectible_link(event) , class: "autolocation" %>
+                  <%= event.venue.name if event.venue %>
+                </td>
+                <td>
+                  <%= link_to "Tickets", collectible_link(event), class: "button1 css3" %>
+                </td>
+              </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  <% end %>
+<% end %>

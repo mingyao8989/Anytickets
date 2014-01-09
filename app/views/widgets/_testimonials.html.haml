@@ -1,0 +1,13 @@
+%section.widget.box2.testimonials.css3
+	%h2
+		%span
+			Testimonials
+	-Testimonial.where(active: true).all.each do |t|
+		%blockquote
+			%p
+				="\"#{t.content}\""
+			%p
+				%cite
+					="#{t.name}- #{t.address}"
+	/ %a.link{:href=>'#'}
+	/ 	All testimonials

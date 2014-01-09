@@ -1,0 +1,4 @@
+$('div#tickets-box').html("<%= escape_javascript(
+										render 'events_box',
+										performer: @performer, 
+										events: @events) %>");

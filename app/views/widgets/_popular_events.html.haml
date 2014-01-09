@@ -1,0 +1,42 @@
+%section.box3.css3
+  %h2
+    Popular National Tickets
+  %ul.thumbnails.list4
+    -collection.each_with_index do |item, i|
+      -if i==3
+        %li.outermost
+          .thumbnail
+            .buffer
+              = image_tag item.image_url, alt: item.name
+              %h3
+                =link_to "#{item.name.first(15)}#{'...' if item.name.length > 15}", collectible_link(item)
+              %p
+                =item.venue.name.truncate(25) if item.venue
+              %span.metadata
+                =item.short_date
+            =link_to "Tickets", collectible_link(item), class:"button1 css3"
+      -else
+        -if i==7
+          %li.last
+            .thumbnail
+              .buffer
+                = image_tag item.image_url, alt: item.name
+                %h3
+                  =link_to "#{item.name.first(15)}#{'...' if item.name.length > 15}", collectible_link(item)
+                %p
+                  =item.venue.name.truncate(25) if item.venue
+                %span.metadata
+                  =item.short_date
+            =link_to "Tickets", collectible_link(item), class:"button1 css3"
+        -else
+          %li
+            .thumbnail
+              .buffer
+                = image_tag item.image_url, alt: item.name
+                %h3
+                  =link_to "#{item.name.first(15)}#{'...' if item.name.length > 15}", collectible_link(item)
+                %p
+                  =item.venue.name.truncate(25) if item.venue
+                %span.metadata
+                  =item.short_date
+              =link_to "Tickets", collectible_link(item), class:"button1 css3"

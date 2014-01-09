@@ -1,0 +1,14 @@
+%section#contact-form.widget.box2.form.css3
+	%h2
+		%span
+			Contact Us
+	-@message=ContactUsMessage.new
+	=form_for @message, html:{class:'form-horizontal'} do |f|
+		.control-group
+			=f.text_field :name, :class=>"textbox" ,placeholder:'Name'
+		.control-group
+			=f.text_field :email, class:"textbox",placeholder:'E-mail address'
+		.control-group
+			=f.text_area :content, class:"textarea",rows:'3', placeholder:'Message'
+		.control-group.clearfix.last
+			=f.submit 'Send',class:"btn css3"		

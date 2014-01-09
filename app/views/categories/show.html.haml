@@ -1,0 +1,97 @@
+#content.clearfix
+    .container
+        .row
+            = @left_sidebar
+            %section.span6
+                = render 'breadcrumbs', category: @category
+                %article.post.about
+                    %h1.nice-title= @page_h1
+                    = image_tag @category.image_path unless @category.image_path.nil? || @category.image_path.empty?
+                -if @local_events && !@local_events.empty?
+                    =render "shared/local_events", events: @local_events
+                -if @featured
+                    = render '/categories/featured'
+                / /Featured
+                - if @category.description
+                    %article.post.about
+                        = markdown(@category.description)
+                - if @performers.empty? && @sub_categories.empty? & @collections.empty?
+                    %section.box4.css3
+                        %table.table1
+                            %thead
+                                %tr
+                                    %th There are no items in this category.
+                            %tbody
+                - else
+                    - unless @collections.empty?
+                        %section.box4.css3
+                            %table.table1
+                                %thead
+                                    %tr
+                                        %th{'colspan' => 2} Collections in this category:
+                                       
+                                %tbody
+                                    - @collections.each_with_index do |item,i|
+                                        - alt_class = ""
+                                        - alt_class = "alt" if (i % 4 == 0)
+                                        - if (i % 2 == 0)
+                                            %tr{:class => alt_class}
+                                                %td
+                                                    = link_to item.name, collection_path(item)
+                                                -if (i+1 < @collections.length)
+                                                    %td
+                                                        = link_to @collections[i+1].name, collection_path(@collections[i+1])
+                                                -else
+                                                    %td
+
+                    - unless @performers.empty?
+                        %section.box4.css3
+                            %table.table1
+                                %thead
+                                    %tr
+                                        %th Performers in this category:
+                                        %th
+                                %tbody
+                                    - @performers.each_with_index do |item,i|
+                                        - alt_class = ""
+                                        - alt_class = "alt" if (i % 4 == 0)
+                                        - if (i % 2 == 0)
+                                            %tr{:class => alt_class}
+                                                %td
+                                                    = link_to @performers[i].name, collectible_link(@performers[i])
+                                                -if (i+1 < @performers.length)
+                                                    %td
+                                                        = link_to @performers[i+1].name, collectible_link(@performers[i+1])
+                                                -else
+                                                    %td
+                                                            
+                                    
+                    - unless @sub_categories.empty?
+                        %section.box4.css3
+                            %table.table1
+                                %thead
+                                    %tr
+                                        %th{'colspan' => 2} Sub-categories in this category:
+                                       
+                                %tbody
+                                    - @sub_categories.each_with_index do |item,i|
+                                        - alt_class = ""
+                                        - alt_class = "alt" if (i % 4 == 0)
+                                        - if (i % 2 == 0)
+                                            %tr{:class => alt_class}
+                                                %td
+                                                    = link_to @sub_categories[i].name, collectible_link(@sub_categories[i])
+                                                -if (i+1 < @sub_categories.length)
+                                                    %td
+                                                        = link_to @sub_categories[i+1].name, collectible_link(@sub_categories[i+1])
+                                                -else
+                                                    %td
+                                    
+                %article.post
+                    %h4 Miscellaneous Information:
+                    %p AnyTickets.com is a licensed ticket broker and AnyTickets.com supplies the highest quality #{@category.name} tickets at the best price on the internet. AnyTickets.com is 100% determined on providing customers with unsurpassed customer service and the highest quality #{@category.name} tickets available.
+                    %h4 Shipping:
+                    %p When you find #{@category.name} tickets that you would like to purchase,they can be purchased online via our encrypted safe and secure server.Or if you prefer,you may order by phone.for faster service, please order online.your #{@category.name} order will be fulfilled within 6-24 hours.All tickets will be sent via federal express.The shipping address must be the same as your billing address at which you receive your credit card statement.If this is not the case, we will need to obtain a fax written authorization from you.If you would like to do this, you should contact one of our ticket representatives.
+                    %h4 Availability:
+                    %p The ticket inventory is updated on a hourly basis.However,if the tickets you wish to purchase are no longer available, we will contact you immediately and you will be given other options or you may choose an alternative set of tickets that we wil try to offer similar to the price range of your original order.
+            = @right_sidebar

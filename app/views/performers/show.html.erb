@@ -1,0 +1,56 @@
+<div id="content" class="clearfix">
+  <div class="container">
+    <div class="row">
+      <%= @left_sidebar %>
+      <section class="span6">
+
+        <!-- Breadcrumbs -->
+        <%= render 'breadcrumbs', performer: @performer %>
+        <!-- /Breadcrumbs -->
+        <%= image_tag(@performer.image_path) if @performer.image_path && @performer.image_path != "" %>
+        <article class="post about">
+        	<h1 class="nice-title"><%= @page_h1 %></h1>
+            <% if @performer.basic_info || @performer.general_info %>
+                <%= markdown(@performer.basic_info) if @performer.basic_info %>
+                <%= markdown(@performer.general_info) if @performer.general_info %>
+            <% end %>
+        </article>
+        <!-- /About -->
+        <% if @performer.extended_info && @performer.extended_info != "" %>
+            <article class="box3 post" id="featured">
+            	<section class="entry">
+                    <%= markdown(@performer.extended_info) %>
+                </section>
+                <p class="read-more"><a href="#" class="show">Read more...</a> <a href="#" class="hide">Read less...</a></p>
+            </article>
+        <% end %>
+
+        <!-- Tickets-list -->
+        <% unless @local_events.nil? || @local_events.empty? %>
+            <%= render "shared/local_events", events: @local_events %>
+        <% end %>
+        <div  id="tickets-box" class="box3">
+            <!-- Filter -->
+            <% if @events.length != 0 %>
+                <%= render "events_box", events: @events, performer: @performer %>
+            <% else %>
+                <div class="tickets-list">
+                    <h3>No tickets are available for this performer.</h3>
+                </div>
+            <% end %>
+        </div>
+        <!-- Tickets-list -->
+        <article class="post">
+        	<h4>Miscellaneous Information: </h4>
+            <p>AnyTickets.com is a licensed ticket broker and AnyTickets.com supplies the highest quality <%= @performer.name %> tickets at the best price on the internet. AnyTickets.com is 100% determined on providing customers with unsurpassed customer service and the highest quality <%= @performer.name %> tickets available.</p>
+            <h4>Shipping: </h4>
+            <p>When you find <%= @performer.name %> tickets that you would like to purchase,they can be purchased online via our encrypted safe and secure server.Or if you prefer,you may order by phone.for faster service, please order online.your <%= @performer.name %> order will be fulfilled within 6-24 hours.All tickets will be sent via federal express.The shipping address must be the same as your billing address at which you receive your credit card statement.If this is not the case, we will need to obtain a fax written authorization from you.If you would like to do this, you should contact one of our ticket representatives.</p>
+            <h4>Availability: </h4>
+            <p>The ticket inventory is updated on a hourly basis.However,if the tickets you wish to purchase are no longer available, we will contact you immediately and you will be given other options or you may choose an alternative set of tickets that we wil try to offer similar to the price range of your original order. </p>
+        </article>
+
+      </section>
+      <%= @right_sidebar %>
+    </div>
+  </div>
+</div>

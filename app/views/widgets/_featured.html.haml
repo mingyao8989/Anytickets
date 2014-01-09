@@ -1,0 +1,12 @@
+%section.widget.featured.box2.css3
+  %h2
+    %span
+      =title
+
+  =link_to image_tag(image, class:'image'), image_link
+  %ul
+    -collection.items.each do |item|
+      %li
+        =link_to item.name, collectible_link(item)
+  %a.link{:href=> all_link}
+    View all

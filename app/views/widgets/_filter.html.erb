@@ -1,0 +1,25 @@
+<section id="find-tickets-form" class="widget box2 form css3">
+<h2><span>Find Tickets</span></h2>
+    <%= form_tag filter_path, class: "form-horizontal", method: 'get' do  %>
+        <div class="control-group">
+            <%= select_tag :main_category, options_for_select([
+                    "All Events",
+                    "SPORTS",
+                    "CONCERTS",
+                    "THEATRE",
+                    "OTHER"], params[:main_category]), class: "css3" %>
+        </div>
+        <div class="control-group">
+            <%= select_tag :state, options_for_select(us_states.insert(0, "All States"), params[:state]) %>
+        </div>
+        <div class="control-group">
+            <%= text_field_tag :name, params[:name], class: "textbox css3", placeholder: "Team, Artist, or Venue" %>
+        </div>
+        <div class="control-group">
+            <%= text_field_tag :date, params[:date], class: "textbox css3 datepicker", placeholder: "All Dates", 'data-behaviour' => 'datepicker' %>
+        </div>
+        <div class="control-group clearfix last">
+            <%= submit_tag "Go", class: "btn css3", name: nil %>
+        </div>
+    <% end %>
+</section>

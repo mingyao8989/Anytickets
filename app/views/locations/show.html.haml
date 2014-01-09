@@ -1,0 +1,10 @@
+#content.clearfix
+  .container
+    .row
+      = @left_sidebar
+      %section.span6
+        - has_events = false
+        - @events_hash.each_value do |value|
+          - has_events = true unless value.empty?
+        = render('a_to_z_list', events_hash: @events_hash, location: @location) if has_events
+      = @right_sidebar

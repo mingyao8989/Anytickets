@@ -1,0 +1,63 @@
+<header id="header" class="clearfix">
+  <div class="container">
+    <div class="row">
+      <section class="logo span3">
+        <a href="/" rel="home" title="Go to homepage"><span>Any Tickets</span></a>
+      </section>
+      <section class="span9">
+        <!-- Global Navigation-->
+        <nav id="global-navigation" class="navbar">
+          <ul class="nav">
+            <li><a href="<%=static_page_path(permalink: "about_us") %>">About Us</a></li>
+          </ul>
+        </nav>
+        <!--/ Global Navigation-->
+        <!-- Search Form -->
+        <section id="search-form" class="span6">
+          <%=  form_tag free_search_path, method: 'get', class: 'form-search' do %>
+            <%= text_field_tag :search_term, params[:search_term], id: "searchinput", autocomplete: "off", class: "input-medium search-query", placeholder: "Search by artist, performer, team, or category" , data: {provide: "typeahead",source: ""}%>
+            <%= submit_tag "", name: nil, class: "btn" %>
+          <% end %>
+        </section>
+        <!-- /Search Form -->
+      </section>
+    </div>
+    <div class="row">
+      <div class="span12">
+        <!-- Main Navigation-->
+        <nav id="main-navigation" class="navbar css3">
+          <ul class="nav clearfix">
+            <li class="active first"><a href="/">Home</a></li>
+
+            <% @header_collections.each do |collection| %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <%= collection.name %>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                  <% collection.items.each do |item| %>
+                   <li class="wide-li"> <%= link_to item.name, collectible_link(item) %> </li>
+                  <% end %>
+                </ul>
+              </li>
+            <%end%>
+            <!-- <li class="last atlanta dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cities<b class="caret"></b></a>
+              <ul class="dropdown-menu" id="last-dropdown" role="menu" aria-labelledby="dropdownMenu">
+                <li><a tabindex="-1" href="#">Type city name</a></li>
+                <input type="text" id="city-search" data-provide="typeahead" data-items="4" data-source='<%=Location.cities_list.to_s%>'>
+              </ul>
+            </li> --> 
+            <li class="last atlanta dropdown">
+              <%= form_tag root_path, method: 'get', id:"location_select" do %>
+                <%= select_tag :city, options_for_select(Location.cities_list, session[:city]), id: "e2", include_blank: true %>
+                <%= submit_tag %>
+              <% end %>
+            </li>
+          </ul>
+        </nav>
+        <!--/ Main Navigation-->
+      </div>
+    </div>
+  </div>
+</header>

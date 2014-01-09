@@ -1,0 +1,19 @@
+.box3
+  .tickets-list
+    %h3 Local tickets:
+    %table.table1
+      %thead
+        %tr
+          %th Event
+          %th Venue
+          %th Date
+          %th  
+      %tbody
+        - events.each_with_index do |event,i|
+          - alt = ""
+          - alt = "alt" if i % 2 == 0
+          %tr{:class => alt}
+            %td= event.name
+            %td= link_to event.venue.name, collectible_link(event.venue) if event.venue
+            %td= event.long_date
+            %td= link_to '<button class="btn  button1 css3">Buy</button>'.html_safe, collectible_link(event)

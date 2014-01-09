@@ -1,0 +1,20 @@
+<div id="content" class="clearfix">
+  <div class="container">
+    <div class="row">
+      <% if @page.include_left_sidebar %>
+        <%= @left_sidebar %>
+      <% end %>
+
+      <% section_class = "span#{(6+(@page.include_left_sidebar ? 0 : 3)+(@page.include_right_sidebar ? 0 : 3)).to_s}" %>
+      <section class="<%= section_class %>">
+        <article class="post about">
+           <%= raw @page.content %>
+        </article>
+      </section>
+
+      <% if @page.include_right_sidebar %>
+        <%= @right_sidebar %>
+      <% end %>
+    </div>
+  </div>
+</div>

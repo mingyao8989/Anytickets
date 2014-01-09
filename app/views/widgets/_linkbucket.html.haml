@@ -1,0 +1,13 @@
+.widgets.widgets-linkbucket
+	%h2= collection.name
+	.widget-content
+	%table.table.table-striped
+		- collection.items.each_slice(2) do |chunk|
+			%tr
+				- chunk.each do |item|
+					%td 
+						link to 
+						=item.name
+			- if chunk.size == 1
+				%td &nbsp;
+

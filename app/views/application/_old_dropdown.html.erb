@@ -1,0 +1,40 @@
+<div class="pulldown-menu">
+  <div class="pulldown-header-container">
+    <div class="pulldown-text">
+      <%= collection.name %>
+    </div>
+  </div>
+  <% slice_size = if collection.items.size % 3 ==0
+      collection.items.size / 3
+    else
+      (collection.items.size / 3) + 1
+      end %>
+  <% columns = collection.items.each_slice(slice_size).to_a %>
+  <div style="width: 114px;" class="pulldown-items-container">
+    <div class="tags-panel pulldown-items">
+      <div class="tags-list">
+        <div class="column col-1">
+          <% columns[0].each do |item| %>
+            <div style="min-width: 114px;" class="pulldown-item">
+              <%= link_to item.name, collectible_link(item), class: 'tag-item' %>
+            </div>
+          <% end %>
+        </div>
+        <div class="column col-2">
+          <% columns[1].each do |item| %>
+            <div style="min-width: 114px;" class="pulldown-item">
+              <%= link_to item.name, collectible_link(item), class: 'tag-item' %>
+            </div>
+          <% end %>
+        </div>
+        <div class="column col-3">
+          <% columns[2].each do |item| %>
+            <div style="min-width: 114px;" class="pulldown-item">
+              <%= link_to item.name, collectible_link(item), class: 'tag-item' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

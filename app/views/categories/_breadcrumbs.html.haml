@@ -1,0 +1,5 @@
+#breadcrumbs.row
+  .span6
+    = link_to(category.grandparent.name, collectible_link(category.grandparent)) if category.grandparent && category.grandparent.visible && category.grandparent.active
+    = link_to(category.parent.name, collectible_link(category.parent)) if category.parent && category.parent.visible && category.parent.active
+    %span= category.nil? ? params[:id] : category.name

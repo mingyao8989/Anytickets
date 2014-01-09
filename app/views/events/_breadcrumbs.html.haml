@@ -1,0 +1,12 @@
+#breadcrumbs.row
+  .span12
+    = link_to(event.category.grandparent.name, collectible_link(event.category.grandparent)) if event.category && event.category.grandparent && event.category.grandparent.visible && event.category.grandparent.active
+    = link_to(event.category.parent.name, collectible_link(event.category.parent)) if event.category && event.category.parent && event.category.parent.visible && event.category.parent.active
+    = link_to(event.category.name, collectible_link(event.category)) if event.category && event.category.visible && event.category.active
+    - if event.performers
+      - event.performers.select{|performer| performer.active }.each do |performer|
+        = link_to performer.name, collectible_link(performer)
+    %span
+      %b
+        =event.name 
+        Tickets

@@ -1,0 +1,77 @@
+  <div class="container">
+    <div class="row">
+      <section class="span3">
+        <%= render 'widgets/filter' %>
+      </section>
+      <section class="span9">
+        <!-- Breadcrumbs -->
+        <div id="breadcrumbs" class="row">
+          <section class="span12"> <%= link_to "Home", root_path %> <span>Search Results</span> </section>
+        </div>
+        <!-- /Breadcrumbs -->
+        <% if @events.length > 0 %>
+        <section class="search-results">
+          <section class="sort-by">
+            <%= form_tag filter_path, method: 'get', id:"sort-field" do %>
+            <p>
+              <%= label_tag :order_by, "Sort by" %>
+              <%= select_tag :order_by, options_for_select([
+                ["Date - Ascending", "events.date ASC"],
+                ["Date - Descending", "events.date DESC"],
+                ["Event - Ascending", "events.name ASC"],
+                ["Event - Descending", "events.name DESC"],
+                ["City - Ascending", "locations.name ASC"],
+                ["City - Descending", "locations.name DESC"],
+                ["Venue - Ascending", "venues.name ASC"],
+                ["Venue - Descending", "venues.name DESC"]], params[:order_by]), include_blank: true %>
+                <%= hidden_field_tag :name, params[:name] %>
+                <%= hidden_field_tag :main_category, params[:main_category] %>
+                <%= hidden_field_tag :city, params[:city] %>
+                <%= hidden_field_tag :date, params[:date] %>
+                <%= hidden_field_tag :page, params[:page] %>
+                <%= submit_tag "submit" , name: nil, id: 'sort' %>
+            </p>
+            <% end %>
+          </section>
+          <section class="box4 css3">
+            <table class="table1">
+              <thead>
+                <tr>
+                  <th>Event</th>
+                  <th>Venue</th>
+                  <th>City</th>
+                  <th>Date</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @events.each_with_index do |event, i| %>
+                  <tr <%= 'class=alt' if i % 2 == 0 %> >
+                    <td class="event">
+                      <%= link_to event.name, collectible_link(event) %>
+                    </td>
+                    <td class="venue">
+                      <%= link_to event.venue.name, collectible_link(event.venue) if event.venue %>
+                    </td>
+                    <td class="city"><%= link_to event.location.name, collectible_link(event.location) %></a></td>
+                    <td class="date">
+                      <%= event.long_date %>
+                    </td>
+                    <td>
+                      <%= link_to "Buy", collectible_link(event), class: "btn  button1 css3" %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+              <div class="pagination pagination-centered">
+          <%= paginate @events %>
+              </div>
+          </section>
+        </section>
+        <% else %>
+          <section> No results were found. </section>
+        <% end %>
+      </section>
+    </div>
+  </div>

@@ -1,0 +1,58 @@
+<div class="tickets-list">
+    <% if tickets.length > 0 %>
+        <h3>Tickets below are available for this event.</h3>
+        <!-- Table1 -->
+        <%  @options = {}
+            if params[:number_of_tickets] && params[:number_of_tickets] != "I'll decide at checkout"
+                @options[:number_of_tickets] = params[:number_of_tickets]
+            end
+            if params[:min_price] && params[:min_price] != "No minimum"
+              @options[:min_price] = params[:min_price]
+            end
+            if params[:max_price] && params[:max_price] != "No maximum"
+              @options[:max_price] = params[:max_price]
+            end %>
+        <table class="table1" id="spinner">
+          <thead>
+              <tr>
+                  <th class="first">
+                        <% @options[:sort] = "section" %>
+                        <%= link_to "Section", tickets_path(event, @options), remote: true %>
+                    </th>
+                    <th>
+                        <% @options[:sort] = "row" %>
+                        <%= link_to "Row", tickets_path(event, @options), remote: true  %>
+                    </th>
+                    <th id="available">
+                        <% @options[:sort] = "available" %>
+                        <%= link_to '# Available', tickets_path(event, @options), remote: true  %>
+                    </th>
+                    <th colspan="2" class="price">
+                        <% @options[:sort] = "price" %>
+                        <%= link_to 'Price (each)', tickets_path(event, @options), remote: true %>
+                    </th>
+                </tr>
+            </thead>
+          <tbody >
+                <% tickets.each_with_index do |ticket, i| %>
+                    <tr <%= 'class=alt' if i % 2 == 0 %>>
+                      <td class="first">
+                            <%= ticket['section'] %>
+                            <% if ticket["notes"] %>
+                                <a href="#" data-placement="right" rel="tooltip" title="Note: <%= ticket['notes'] %>" class="more-lnk">Details</a>
+                            <% end %>
+                        </td>
+                        <td><%= ticket['row'] %></td>
+                        <td><%= to_array_with_ranges(ticket['valid_splits']['int']).join(' or ') %>
+                        </td>
+                        <td class="price-field">$<%= ticket['actual_price'] %></td>
+                        <td><%=link_to "Buy", checkout_url(event.tnid, ticket['id'], ticket['actual_price'], ticket_amount), :class => "btn  button1 css3" %> </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <!-- /Table1 -->
+    <% else %>
+        <h3 id="spinner">No tickets are available for this event.</h3>
+    <% end %>
+</div>

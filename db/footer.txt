@@ -1,0 +1,53 @@
+{% plainwidget %}
+	<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <section class="span2 section">
+        <h2>CUSTOMER</h2>
+        <ul class="list1">
+          <li><a href="#">Help</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Sales Terms</a></li>
+          <li><a href="#">Buyer Guarantee</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Sell Tickets</a></li>
+        </ul>
+      </section>
+      <section id="footer-navigation" class="span2 section">
+        <h2>COMPANY</h2>
+        <nav>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Affiliate Program</a></li>
+            <li><a href="/sitemap1.xml.gz">Site Map</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="span2 section sociable">
+        <h2>CONNECT </h2>
+        <ul class="clearfix">
+          <li><a href="http://www.facebook.com/anytickets" class="facebook">&nbsp;</a></li>
+          <li><a href="http://twitter.com/anytickets_com" class="twitter">&nbsp;</a></li>
+        </ul>
+      </section>
+      <section class="span3 section trust">
+        <ul>
+          <li><a href="#"><img alt="accredited-business" src="/assets/accredited-business.jpg"></a></li>
+          <li><a href="#"><img alt="truste" src="/assets/truste.jpg"></a></li>
+          <li><a href="#"><img alt="mcafee" src="/assets/mcafee.jpg"></a></li>
+          <li><a href="#"><img alt="verisign-secured" src="/assets/verisign-secured.jpg"></a></li>
+        </ul>
+      </section>
+      <section class="span3 section last">
+        <section class="logo">
+          <h2><a href="#" rel="home" title="Go to homepage"><span>Any Tickets</span></a></h2>
+        </section>
+        <p>Tickets are sold for more than face value
+
+          © 2012 Onlineseats.com. All rights reserved.</p>
+      </section>
+    </div>
+  </div>
+</footer>
+{%endplainwidget %}

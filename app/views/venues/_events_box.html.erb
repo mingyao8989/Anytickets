@@ -1,0 +1,46 @@
+<% if events.length != 0 %>
+<div class="tickets-list">
+    <h3>Tickets below are available for this venue.</h3>
+    <table class="table1">
+    	<thead>
+        	<tr>
+            	<th><%=link_to "Event", 
+                    venue_tickets_path(params.update({order_by: 'name ASC'})),
+                    remote:true %></th>
+                <th><%=link_to "Venue",
+                    venue_tickets_path(params.update({order_by: 'venues.name ASC'})),
+                    remote:true %></th>
+                <th><%=link_to "City", 
+                    venue_tickets_path(params.update({order_by: 'locations.name ASC'})),
+                    remote:true %></th>
+                <th><%=link_to "Date", 
+                    venue_tickets_path(params.update({order_by: 'date ASC'})), 
+                    remote:true %></th>
+                <th>&nbsp;</th>
+
+            </tr>
+        </thead>
+    	<tbody>
+        	<% events.each_with_index do |event, i| %>
+                <% if event %>
+                    <tr itemscope itemtype="http://data-vocabulary.org/Event" <%= 'class=alt' if i % 2 ==0 %> >
+                        <td itemprop="summary"><%= event.name %></td>
+                        <td><%= link_to event.venue.name, collectible_link(event.venue) if event.venue %></td>
+                        <td itemprop="location"><%=link_to event.location.name, collectible_link(event.location) if event.location %></td>
+                        <td itemprop="startDate" content="<%= event.date.to_time.iso8601 %>">><%= event.long_date %></td>
+                        <td><%= link_to '<button class="btn  button1 css3">Buy</button>'.html_safe, collectible_link(event), itemprop: "url" %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination">
+  <%= paginate events, remote: true, window: 1, params: {controller: 'venues', action: 'events', id: venue.slug, order_by: params[:order_by]} %>
+</div>
+<% else %>
+<div class="tickets-list">
+    <h3>No tickets are available for this venue.</h3>
+</div>
+<% end %>

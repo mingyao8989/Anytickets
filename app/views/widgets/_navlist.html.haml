@@ -1,0 +1,9 @@
+.well.sidebar-nav.widgets.widgets-navlist
+	%p= collection.name
+	.widget-content
+		%ul.nav.nav-list
+			- @collection.items.each do |item|
+				%li  
+				link to
+				=item.name
+
