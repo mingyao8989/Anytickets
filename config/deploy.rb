@@ -20,8 +20,8 @@ set :password, "StEwRur8"
 
 set :application, "allseats"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-# set :deploy_via, :checkout
-set :deploy_via, :remote_cache
+set :deploy_via, :checkout
+# set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :whenever_command, "bundle exec whenever"
