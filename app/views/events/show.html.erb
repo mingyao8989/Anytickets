@@ -90,9 +90,15 @@
         Initialize Ticket Utils Interactive Map
         ************************************************************/
         $("#MapContainer").tuMap({
-			//ServiceUrl: "http://imap.ticketutils.net"
-            MapId: "24d98d09-37e1-437f-87c5-eae845692e6c"
-			//MapId: "b69e03e8-fbdb-4b62-b3f7-3b93da7b3c85"
+			//ServiceUrl: "http://imap.ticketutils.net"            			
+			EventInfo: {
+		        Venue: "<%= @event.venue.name rescue "" %>",
+		        EventName: "<%= @event.name rescue "" %>",
+		        EventDate: "<%= @event.date.strftime("%Y-%m-%dT%H:%M") rescue "2014-01-21T19:30"%>"
+		    }
+		    //,MapId: "24d98d09-37e1-437f-87c5-eae845692e6c"		    
+		    ,MapId: "eb97ab0d-330a-439a-812b-98ce28d63361"
+			//, MapSet: "tn"
             , MapType: "Interactive"
             , ControlsPosition: "Inside"
             /*Failover Map: Replace this with a URL of the static chart from alternate datasource(when available)*/
