@@ -1,3 +1,9 @@
+<!-- jQuery UI Style Sheet, Used for Price Slider -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+<!-- jQuery UI Library, Used for Price Slider -->
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
 <div id="content" class="clearfix">
   <div class="container buy-ticket">
   	<!-- Breadcrumbs -->
@@ -198,8 +204,8 @@
 	            	  		@static_image_tag = ""
 	                    end
                     %>
-                    //var Message; 
-		            $("#MapContainer").html(<%= @static_image_tag%>);
+                    var Message = '<%= @static_image_tag%>';
+		            $("#MapContainer").html(Message);
 		        }
 		        Demo.StopLoading();
 		    }
