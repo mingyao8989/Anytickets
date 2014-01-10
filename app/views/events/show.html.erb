@@ -1,9 +1,3 @@
-<!-- jQuery UI Style Sheet, Used for Price Slider -->
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-
-<!-- jQuery UI Library, Used for Price Slider -->
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
 <div id="content" class="clearfix">
   <div class="container buy-ticket">
   	<!-- Breadcrumbs -->
@@ -16,65 +10,155 @@
         </div>
         <!-- /Page-header -->
         <div class="row">
-        	<div style="width:1000px; margin:0 auto;">
-			        <!-- List Container --> 
-			    <div class="ListContainer" id="ListContainer">
-			
-			        <!-- Tickets Parking Pass Filter -->
-			        <div class="TicketListTab">
-			            <ul>
-			                <li class="SelectedTicketListTab"><a href="javascript:SwitchList(false);" class="ui-corner-top">Tickets</a> </li>
-			                <li><a href="javascript:SwitchList(true);" class="ui-corner-top">Parking Passes</a></li>
-			            </ul>
-			            <br class="flC" />
-			        </div>
-			
-			        <div id="TicketList" class="ui-widget">
-			            <div class="ui-widget-header">
-			                <div class="InventoryFilter" style="width: 300px;">
-			                    <span class="FilterTitle" style="display: inline-block;">Price Range:</span>&nbsp;
-								<span class="PriceRange"></span>&nbsp;to&nbsp;<span class="PriceRange"></span><br />
-			                    <div class="PriceSlider">
-			                        <div id="price-range">
-			                        </div>
-			                    </div>
-			                    <br class="FloatClear" />
-			                </div>
-			                <div class="InventoryFilter" style="margin-right: 0px;">
-			                    <span class="FilterTitle">Quantity:</span>
-			                    <select id="TicketQuantity">
-			                        <option value="" selected="selected">All</option>
-			                        <option value="1">1</option>
-			                        <option value="2">2</option>
-			                        <option value="3">3</option>
-			                        <option value="4">4</option>
-			                        <option value="5+">5 Or More</option>
-			                    </select>
-			                </div>
-			                <div class="InventoryFilter" style="margin: 21px 5px 0 0; float: right;">
-			                    <input type="checkbox" id="eTicketFilter" /><label for="eTicketFilter" style="vertical-align:top; cursor:pointer;">E-Tickets</label>
-			                </div>
-			                <br class="FloatClear" />
-			            </div>
-			            <div class="ui-widget-content ui-corner-bottom Content">
-			                <!-- Required Container to load Ticket List -->
-			                <div id="InventoryContainer" class="InventoryContainer">
-			                </div>
-			            </div>
-			        </div>
-			    </div>
-			    <div id="TuMap">
-			        <!-- Required Container to load Interactive Map -->
-			        <div id="MapContainer" class="MapContainer">
-			        </div>
-			
-			        <!-- Required Container to Interactive Map's Section Groups/Legends List -->
-			        <div id="GroupsContainer" class="GroupsContainer">
-			        </div>
-			
-			    </div>
-			    <div class="flC"></div>
-			</div>
+        	<!-- Span6 -->
+        	<div class="span6">
+            	<div class="box3 search-ticket">
+                	<div class="filter">
+                    	<%= form_tag collectible_link(@event), id:"tickets-filter", class: 'form-horizontal', method: 'get', remote: true do %>
+                            <div class="control-group">
+                                <%= label_tag :number_of_tickets, "How many tickets do you want?", class: "control-label" %>
+                                <div class ="controls">
+                                    <%= select_tag :number_of_tickets, options_for_select(["I'll decide at checkout"] + @number_options,
+                                        params[:number_of_tickets]) %>
+                                </div>
+                            </div>
+                            <div class="control-group price-range">
+                                <label class="control-label">What's your price range?</label>
+                                <div class ="controls">
+                                    <%= select_tag :min_price, options_for_select(
+                                            ["No minimum",
+                                            ["$60", 60],
+                                            ["$70", 70],
+                                            ["$80", 80],
+                                            ["$90", 90],
+                                            ["$100", 100],
+                                            ["$150", 150],
+                                            ["$200", 200],
+                                            ["$250", 250],
+                                            ["$300", 300],
+                                            ["$350", 350],
+                                            ["$400", 400],
+                                            ["$450", 450],
+                                            ["$500", 500],
+                                            ["$600", 600],
+                                            ["$700", 700],
+                                            ["$800", 800],
+                                            ["$900", 900],
+                                            ["$1000", 1000],
+                                            ["$1500", 1500],
+                                            ["$2000", 2000],
+                                            ["$2500", 2500],
+                                            ["$3000", 3000],
+                                            ["$4000", 4000],
+                                            ["$5000", 5000],
+                                            ["$20000", 20000]],
+                                            params[:min_price]) %>
+                                </div>
+                                <%= label_tag :max_price, "to", class: "control-label to" %>
+                                <div class ="controls">
+                                    <%= select_tag :max_price, options_for_select(
+                                            ["No maximum",
+                                            ["$70", 70],
+                                            ["$80", 80],
+                                            ["$90", 90],
+                                            ["$100", 100],
+                                            ["$150", 150],
+                                            ["$200", 200],
+                                            ["$250", 250],
+                                            ["$300", 300],
+                                            ["$350", 350],
+                                            ["$400", 400],
+                                            ["$450", 450],
+                                            ["$500", 500],
+                                            ["$600", 600],
+                                            ["$700", 700],
+                                            ["$800", 800],
+                                            ["$900", 900],
+                                            ["$1000", 1000],
+                                            ["$1500", 1500],
+                                            ["$2000", 2000],
+                                            ["$2500", 2500],
+                                            ["$3000", 3000],
+                                            ["$4000", 4000],
+                                            ["$5000", 5000],
+                                            ["$10000", 10000],
+                                            ["$50000", 50000]],
+                                            params[:max_price]) %>
+                                </div>
+                                <%= submit_tag "submit" , name: nil%>
+                            </div>
+                        <% end %>
+                    </div>
+                    <!-- Filter -->
+                    <div id="tickets-box">
+                        <%= render 'tickets', tickets: @tickets,
+                                number_options: @number_options,
+                                ticket_amount: @ticket_amount,
+                                event: @event %>
+                    </div>
+                </div>
+            </div>
+            <!-- /Span6 -->
+            <!-- Span6 -->
+        	<div class="span6">
+            	<!-- FAQs -->
+                <!-- Location-map -->
+                <div class="location-map">
+                    <h3>We are a resale marketplace, not a box office or venue.</h3>
+                    <div id="TuMap">
+				        <!-- Required Container to load Interactive Map -->
+				        <div id="MapContainer" class="MapContainer">
+				        </div>
+				
+				        <!-- Required Container to Interactive Map's Section Groups/Legends List -->
+				        <div id="GroupsContainer" class="GroupsContainer">
+				        </div>				
+				    </div>
+				    <div class="flC"></div>                    
+                </div>
+                <!-- /Location-map -->
+                <!-- Ticket-info -->
+                <div itemscope itemtype="http://schema.org/Event" >
+                    <div class="ticket-info">
+                        <p><strong>Event:</strong> <span itemprop="name"><%= @event.name %></span></p>
+                        <meta itemprop="startDate" content="<%= @event.date.to_time.iso8601 %>" >
+                        <p><strong>Date:</strong> <%=@event.long_date %></p>
+                        <div itemprop="location" itemscope itemtype="http://schema.org/Place" >
+                            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" >
+                                <p><strong>Location:</strong><span itemprop="addressLocality"> <%= "#{@event_venue.name} - " if @event_venue %> <%= @event.location.name if @event.location %></span>,<span itemprop="addressRegion" > <%= @event.state_province %></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Ticket-info -->
+                <div class="faqs">
+                	<h3>Frequently Asked Questions</h3>
+                    <ul>
+                    	<li>
+                        	<h4>Are the seats together? </h4>
+                            Yes, unless otherwise noted all seats are together.
+                        </li>
+                        <li>
+                        	<h4>When do the tickets ship? </h4>
+                            Tickets do not always ship immediately, but accepted orders are guaranteed    to arrive before the event.
+                        </li>
+                        <li>
+                        	<h4>Are these prices face value?</h4>
+                            In most cases no. Our tickets come from the secondary market.
+                        </li>
+                        <li>
+                        	<h4>Where do your tickets come from? </h4>
+                            All of the tickets listed on our site are being listed by reputable ticket brokers   from across the country.
+                        </li>
+                        <li>
+                        	<h4>Where do your tickets come from? </h4>
+                            All of the tickets listed on our site are being listed by reputable ticket brokers   from across the country.
+                        </li>
+                    </ul>
+                </div>
+                <!-- /FAQs -->
+            </div>
+            <!-- /Span6 -->
         </div>
     </div>
 </div>
@@ -96,151 +180,31 @@
 		        EventName: "<%= @event.name rescue "" %>",
 		        EventDate: "<%= @event.date.strftime("%Y-%m-%dT%H:%M") rescue "2014-01-21T19:30"%>"
 		    }
-		    //,MapId: "24d98d09-37e1-437f-87c5-eae845692e6c"		    
-		    ,MapId: "eb97ab0d-330a-439a-812b-98ce28d63361"
-			//, MapSet: "tn"
             , MapType: "Interactive"
             , ControlsPosition: "Inside"
             /*Failover Map: Replace this with a URL of the static chart from alternate datasource(when available)*/
 		    , FailoverMapUrl: "http://data.ticketutils.com/Charts/No-Seating-Chart.jpg"
-		    , Tickets: Data.Tickets
+		    , Tickets: [] //Data.Tickets
 		    , AutoSwitchToStatic: false
 		    , PreferredFirst: true
-		    , TicketsListContainer: "#InventoryContainer"
-		    , GroupsContainer: "#GroupsContainer"
+		    , TicketsListContainer: null//"#InventoryContainer"
+		    , GroupsContainer: null//"#GroupsContainer"
 		    , OnError: function (e, Error) {
 		        if (Error.Code == 0) {
-		            var Message = "<div style=\"padding:10px;\">";
-		            Message += "<span style=\"color:red;font-weight:bold;\">This Sample is Configured to run under host 'localhost'</span>";
-		            Message += "<br />";
-		            Message += "Please configure IIS/Apache or Compatible Web Server to point 'demo' folder in order to view the Sample. If you intend to Run it under different Domain, please contact TicketUtils Support for Activation";
-		            Message += "</div>";
+		            <% 
+			            if @event.img_static_url && ! /\A\d{4}-\d{2}-\d{2}\z/.match(@event.img_static_url) 
+	                        @static_image_tag = image_tag @event.img_static_url
+	                    else
+	            	  		@static_image_tag = ""
+	                    end
+                    %>
+                    var Message = <%= @static_image_tag%>
 		            $("#MapContainer").html(Message);
 		        }
-		        InitSlider(false);
+		        Demo.StopLoading();
 		    }
-            , OnBeforeListRender: function () {
-                var Height = $("#TuMap").outerHeight();
-                Height -= $(".TicketListTab").outerHeight();
-                Height -= $("#TicketList .ui-widget-header").outerHeight();
-                $("#InventoryContainer").height(Height);
-            }
 		    , OnInit: function (e, MapType) {
-		        InitSlider(true);
-            }
-            , OnReset: function () {
-                var min = $("#price-range").slider("option", "min"),
-                    max = $("#price-range").slider("option", "max");
-
-                $($("span.PriceRange")[0]).html("$" + min);
-                $($("span.PriceRange")[1]).html("$" + max);
-
-                $("#price-range").slider("option", "values", [min, max]);
-
-                FilterTickets();
+		        Demo.StopLoading();
             }
         });
-
-        /************************************************************
-       Create Price Range Slider (Optional)
-       ************************************************************/
-
-        $("#price-range").slider({
-            range: true
-		    , slide: function (event, ui) {
-		        $($("span.PriceRange")[0]).html("$" + ui.values[0]);
-		        $($("span.PriceRange")[1]).html("$" + ui.values[1]);
-		    }
-		    , stop: function (event, ui) {
-		        FilterTickets();
-		    }
-        });
-
-        /************************************************************
-        Filter Ticket List On Ticket Quantity Change (Optional)
-        ************************************************************/
-
-        $("#TicketQuantity").change(function () {
-            FilterTickets();
-        });
-
-        /************************************************************
-        Filter Ticket List On eTicket Filter Change (Optional)
-        ************************************************************/
-
-       $("#eTicketFilter").click(function () {
-            FilterTickets();
-        });
-
-    };
-
-
-    /************************************************************
-    Set Price Slider Values. (Optional)
-    Set Price Range Marker Text. (Optional)
-    Remove Parking Button from Map.(If Custom Parking Pass tab is Implemented)
-    ************************************************************/
- 
-       function InitSlider(ChartLoaded) {
-            /*Set Minimum and Maximum Price from your Dataset*/
-        var Min = 10, Max = 1500;
-
-        $("#price-range").slider("option", {
-            min: Min,
-            max: Max,
-            values: [Min, Max]
-        });
-
-        $($(".InventoryFilter span.PriceRange")[0]).html("$" + Min);
-        $($(".InventoryFilter span.PriceRange")[1]).html("$" + Max);
-
-        /*Add Price Markers*/
-        $("#price-range span.Marker").remove();
-        $("#price-range").append($("<span>").attr("class", "Marker").attr("style", "float:left;").html("$" + Min));
-        $("#price-range").append($("<span>").attr("class", "Marker").attr("style", "float:right;").html("$" + Max));
-
-        /*Set Price Markers position*/
-        var label = $($("#price-range").children("span")[0]);
-        label.css("margin-left", (label.width() / 2) * -1);
-        label = $($("#price-range").children("span")[1]);
-        label.css("margin-right", (label.width() / 2) * -1);
-
-        /*Remove the Parking Button on the Map*/
-        $("#MapContainer").tuMap("RemoveMapControl", "Parking");
-        if (!ChartLoaded) $($(".TicketListTab li")[1]).hide();
-
-        //ONLY FOR DEMO
-        Demo.StopLoading();
-        
-    }
-
-    /************************************************************
-    Use if Custom Parking Pass tab is Implemented. (Optional)
-    Used for switching between Ticket list and Parking Passes
-    ************************************************************/
-    function SwitchList(ParkingPassesOnly) {
-        $(".TicketListTab li").removeClass("SelectedTicketListTab");
-        $($(".TicketListTab li")[ParkingPassesOnly ? 1 : 0]).addClass("SelectedTicketListTab");
-
-        /*Filter the Parking Tickets*/
-        $("#MapContainer").tuMap("FilterTickets", "Parking", ParkingPassesOnly);
-    }
-
-    /************************************************************
-    Filter Ticket List On
-    Ticket Quantity, Price Range or eTicket Filter Change (Optional)
-    ************************************************************/
-    function FilterTickets() {
-        var PriceRange = $("#price-range").slider("option", "values");
-
-        $("#MapContainer").tuMap("SetOptions", {
-            TicketsFilter: {
-                MinPrice: PriceRange[0]
-			    , MaxPrice: PriceRange[1]
-			    , Quantity: $("#TicketQuantity").val()
-			    , eTicket: $("#eTicketFilter").is(":checked")
-            }
-        }).tuMap("Refresh");
-    }
-
 </script>
