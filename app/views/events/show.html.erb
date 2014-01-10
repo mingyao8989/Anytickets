@@ -198,8 +198,8 @@
 	            	  		@static_image_tag = ""
 	                    end
                     %>
-                    var Message = <%= @static_image_tag%>
-		            $("#MapContainer").html(Message);
+                    //var Message; 
+		            $("#MapContainer").html(<%= @static_image_tag%>);
 		        }
 		        Demo.StopLoading();
 		    }
