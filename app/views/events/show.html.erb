@@ -184,23 +184,8 @@
             , ControlsPosition: "Inside"
             /*Failover Map: Replace this with a URL of the static chart from alternate datasource(when available)*/
 		    , FailoverMapUrl: "http://data.ticketutils.com/Charts/No-Seating-Chart.jpg"
-		    , Tickets: [] //Data.Tickets
-		    , AutoSwitchToStatic: false
-		    , PreferredFirst: true
-		    , TicketsListContainer: null//"#InventoryContainer"
-		    , GroupsContainer: null//"#GroupsContainer"
+		    , Tickets: []		    
 		    , OnError: function (e, Error) {
-		        if (Error.Code == 0) {
-		            <% 
-			            if @event.img_static_url && ! /\A\d{4}-\d{2}-\d{2}\z/.match(@event.img_static_url) 
-	                        @static_image_tag = image_tag @event.img_static_url
-	                    else
-	            	  		@static_image_tag = ""
-	                    end
-                    %>
-                    var Message = '<%= @static_image_tag%>';
-		            $("#MapContainer").html(Message);
-		        }
 		        Demo.StopLoading();
 		    }
 		    , OnInit: function (e, MapType) {
