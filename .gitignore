@@ -28,5 +28,5 @@ tmp/i18n-js.cache
 Thumbs.db
 
 ._*
-# Gemfile.lock
-# /config/initializers/devise.rb
+Gemfile.lock
+/config/initializers/devise.rb
