@@ -48,6 +48,11 @@ class EventsController < ApplicationController
     if params[:number_of_tickets] != "I'll decide at checkout"
       @tickets = @tickets.select{|ticket| ticket['valid_splits']['int'].include? params[:number_of_tickets].to_s}
     end
+    # communicate with a interactive map
+    if params[:selected_sections] != ""
+      all_selected_sections = " #{params[:selected_sections].upcase} "
+      @tickets = @tickets.select{|ticket| all_selected_sections.include? " #{ticket['section'].upcase} " }
+    end
 
     if params[:sort]
       case params[:sort]

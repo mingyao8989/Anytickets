@@ -87,6 +87,9 @@
                                 </div>
                                 <%= submit_tag "submit" , name: nil%>
                             </div>
+                    		<div class="control-group params">
+                				<%= hidden_field_tag :selected_sections %>
+                			</div>
                         <% end %>
                     </div>
                     <!-- Filter -->
@@ -202,6 +205,19 @@
 		    }
 		    , OnInit: function (e, MapType) {
 		        Demo.StopLoading();
+            }
+            , OnClick: function (e, Section) {
+            	var Sections=$("Selector").tuMap("GetSelectedSections",
+                        {
+                            OnlyUnique: true
+                            , IncludeGroupName: true
+                        });
+            	$('form#tickets-filter #selected_sections').val(Sections.join(" "));
+            	$('form#tickets-filter').submit();
+            }
+            , OnReset: function (e) {
+            	$('form#tickets-filter #selected_sections').val("");
+            	$('form#tickets-filter').submit();
             }
         });
    };
