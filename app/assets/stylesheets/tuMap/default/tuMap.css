@@ -318,7 +318,7 @@
 .tuMapSectionViewContainer .CloseButton
 {
 	float:right;
-	background: url("tuMap/imag/close.png") no-repeat;
+	background: url("tuMap/img/close.png") no-repeat;
 	width:16px;
 	height:16px;
 	cursor:pointer;
@@ -330,7 +330,7 @@
 /*Loading*/
 .LoaddingWrapper {
     position: absolute;
-    background: url("tuMap/imag/ui-bg_diagonals-thick_90_eeeeee_40x40.png") repeat scroll 50% 50% #EEEEEE;
+    background: url("tuMap/img/ui-bg_diagonals-thick_90_eeeeee_40x40.png") repeat scroll 50% 50% #EEEEEE;
     opacity: 0.8;
     z-index: 1001;
     width:100%;
@@ -338,7 +338,7 @@
 }
 
 .Loadding {
-    background: url("tuMap/imag/ajax-loader.gif") no-repeat center;
+    background: url("tuMap/img/ajax-loader.gif") no-repeat center;
     width:100%;
     height:100%;
 }
