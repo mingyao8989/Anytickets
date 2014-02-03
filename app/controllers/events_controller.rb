@@ -38,6 +38,7 @@ class EventsController < ApplicationController
     params[:number_of_tickets] = "I'll decide at checkout" if !params[:number_of_tickets]
     params[:min_price] = "No minimum" if !params[:min_price]
     params[:max_price] = "No maximum" if !params[:max_price]
+    params[:selected_sections] = "" if !params[:selected_sections]
 
     if params[:min_price] != "No minimum"
       @tickets = @tickets.select{|ticket| ticket['actual_price'].to_i >= params[:min_price].to_i}

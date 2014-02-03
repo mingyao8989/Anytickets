@@ -171,7 +171,7 @@
  	
  	window.onload = function () {
     	console.log("start loading 02");
-        Demo.StartLoading();
+        // Demo.StartLoading();
 
         /************************************************************
         Initialize Ticket Utils Interactive Map
@@ -201,10 +201,10 @@
                     var Message = '<%= @static_image_tag%>';
 		            $("#MapContainer").html(Message);
 		        }
-		        Demo.StopLoading();
+		        // Demo.StopLoading();
 		    }
 		    , OnInit: function (e, MapType) {
-		        Demo.StopLoading();
+		        // Demo.StopLoading();
             }
             , OnClick: function (e, Section) {
             	var Sections=$("Selector").tuMap("GetSelectedSections",
