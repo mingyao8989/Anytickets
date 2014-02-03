@@ -14,7 +14,7 @@
     font-size:14px;
     background-color:#FFFFFF;
     border:0;
-    background-image:url(../images/Zoom.png);
+    background-image:url("tuMap/img/Zoom.png");
     background-repeat:no-repeat;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     cursor:pointer;
@@ -61,11 +61,11 @@
 }
 .tuMapeTicket
 {
-	background: url("../images/eticket.png") no-repeat;
+	background: url("tuMap/img/eticket.png") no-repeat;
 }
 .tuMapPreferred
 {
-	background: url("../images/preferred.png") no-repeat;
+	background: url("tuMap/img/preferred.png") no-repeat;
 }
 .tuMapTicketList tr.OddRow
 {
@@ -94,18 +94,18 @@
 }
 .tuMapTicketList th.Sort span
 {
-    background: url("../images/sort.png") no-repeat 1px center;
+    background: url("tuMap/img/sort.png") no-repeat 1px center;
 	display:inline-block;
 	width:12px;
 	height:10px;
 }
 .tuMapTicketList th.ASC span
 {
-    background: url("../images/asc.png") no-repeat 1px center;
+    background: url("tuMap/img/asc.png") no-repeat 1px center;
 }
 .tuMapTicketList th.DESC span
 {
-    background: url("../images/desc.png") no-repeat 1px center;
+    background: url("tuMap/img/desc.png") no-repeat 1px center;
 }
 
 
@@ -116,7 +116,7 @@
 }
 .tuMapTicketList .Notes
 {
-	background: url("../images/note.png") no-repeat center;
+	background: url("tuMap/img/note.png") no-repeat center;
 	display:inline-block;
 	width:20px;
 	height:20px;
@@ -169,7 +169,7 @@
 }
 .tuMapTooltip .SectionViewZoom
 {
-    background-image:url(../images/SectionViewZoom.png);
+    background-image:url("tuMap/img/SectionViewZoom.png");
     background-position: center center;
     background-repeat:no-repeat;
     position:absolute;
@@ -237,7 +237,7 @@
 }
 .tuMapGroupChecked .tuMapGroupColor
 {
-	background-image:url('../images/check.png');
+	background-image:url('tuMap/img/check.png');
 	background-repeat:no-repeat;
 }
 .tuMapGroupsContainer .tuMapGroupColor
@@ -318,7 +318,7 @@
 .tuMapSectionViewContainer .CloseButton
 {
 	float:right;
-	background: url("../images/close.png") no-repeat;
+	background: url("tuMap/imag/close.png") no-repeat;
 	width:16px;
 	height:16px;
 	cursor:pointer;
@@ -330,7 +330,7 @@
 /*Loading*/
 .LoaddingWrapper {
     position: absolute;
-    background: url("../images/ui-bg_diagonals-thick_90_eeeeee_40x40.png") repeat scroll 50% 50% #EEEEEE;
+    background: url("tuMap/imag/ui-bg_diagonals-thick_90_eeeeee_40x40.png") repeat scroll 50% 50% #EEEEEE;
     opacity: 0.8;
     z-index: 1001;
     width:100%;
@@ -338,7 +338,7 @@
 }
 
 .Loadding {
-    background: url(../images/ajax-loader.gif) no-repeat center;
-     width:100%;
+    background: url("tuMap/imag/ajax-loader.gif") no-repeat center;
+    width:100%;
     height:100%;
 }
