@@ -5,7 +5,7 @@ body
     color: #333;
     font:normal 14px RobotoLight;
     overflow-y:scroll;
-    background:url("tuMap/img/Bg.jpg");
+    /*background:url("tuMap/img/Bg.jpg");*/
 }
 
 .flC {
