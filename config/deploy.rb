@@ -16,7 +16,7 @@ load "config/recipes/monit"
 server "69.41.167.90", :web, :app, :db, primary: true
 
 set :user, "deployer"
-set :password, "StEwRur8"
+set :password, "Z8FraBre"
 
 set :application, "allseats"
 set :deploy_to, "/home/#{user}/apps/#{application}"
