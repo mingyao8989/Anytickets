@@ -94,6 +94,9 @@
                     </div>
                     <!-- Filter -->
                     <div id="tickets-box">
+                    	<!-- Section View Container -->
+				            <div id="SectionViewContainer" style="width: 480px; margin-top: 0px; right: 0; position: absolute; z-index: 10"></div>
+				        <!-- Tickets Parking Pass Filter -->
                         <%= render 'tickets', tickets: @tickets,
                                 number_options: @number_options,
                                 ticket_amount: @ticket_amount,
@@ -186,6 +189,9 @@
 		    , MapId: "0d1536d9-5585-4969-ab98-308ea079df1f"
             , MapType: "Interactive"
             , ControlsPosition: "Inside"
+            , SectionViewContainer: "#SectionViewContainer"
+		    , SectionViewTrigger: "mouseover"
+            , EnableTooltipSectionView: false
             /*Failover Map: Replace this with a URL of the static chart from alternate datasource(when available)*/
 		    , FailoverMapUrl: "http://data.ticketutils.com/Charts/No-Seating-Chart.jpg"
 		    , Tickets: []		    
