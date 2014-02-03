@@ -50,8 +50,8 @@ class EventsController < ApplicationController
     end
     # communicate with a interactive map
     if params[:selected_sections] != ""
-      all_selected_sections = " #{params[:selected_sections]} "
-      # @tickets = @tickets.select{|ticket| all_selected_sections.include? " #{ticket['section'].upcase} " }
+      all_selected_sections = " #{params[:selected_sections].to_s.upcase} "
+      @tickets = @tickets.select{|ticket| all_selected_sections.include? " #{ticket['section'].upcase} " }
     end
 
     if params[:sort]
